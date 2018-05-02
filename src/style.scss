@@ -1,6 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700,900);
+
+$bgLeft: #FFF;
+
+$bgRight: #F1F1F1;
+
+$mainFont: 'Montserrat';
+
 body {
-    background: red;
-    transform: translateX(50%);
+    background: linear-gradient(to right, $bgLeft, $bgRight);
 }
 
-@import 'test';
+h1, h2 {
+    font-family: $mainFont;
+    font-weight: 900;
+}
+
+li {
+    font-family: $mainFont;
+    font-weight: 700;
+}
+
