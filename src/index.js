@@ -8,3 +8,16 @@ import Webl from './assets/img/web-l.svg'
 
 
 menu();
+
+let projets = document.querySelectorAll(".projets-item");
+
+projets.forEach( function(projet){
+    console.log(projet)
+    projet.addEventListener("mouseenter", () => {
+        console.log("mdr")
+        projet.classList.add("hover")
+    })
+    projet.addEventListener("mouseleave", () => {
+        projet.classList.remove("hover")
+    })
+})

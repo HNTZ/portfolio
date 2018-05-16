@@ -1,4 +1,4 @@
-{{> partials/header title ="Portfolio lucas Heintz"}}
+{{> partials/header title ="Portfolio lucas Heintz" page="home"}}
 
 <h1 class="landing-title"><span>Developpeur<br>
     <object id="web-s" data="./assets/img/web-s.svg" type="image/svg+xml"></object>
@@ -8,13 +8,48 @@
 
 <section id="projets" class="container">
     <h2>Réalisations</h2>
-    <ul class="projets-list">
-        <li class="projets-item"><a href="">Application météo</a></li>
-        <li class="projets-item"><a href="">WooCommerce</a></li>
-        <li class="projets-item"><a href="">Playlist vidéo</a></li>
-        <li class="projets-item"><a href="">Wordpress</a></li>
-        <li class="projets-item"><a href="">Je sais pas</a></li>
-    </ul>
+    <ol class="projets-list">
+        <li class="projets-item">
+            <div class="flex">
+                <p><a href="" id="meteo">Appli météo</a></p>
+                <ul class="tags"><li>JavaScript</li><li>GSAP</li><li>Weather API</li></ul>
+            </div>
+        </li>
+        <li class="projets-item">
+            <div class="flex">
+                <p><a href="" id="video">Playlist vidéo</a></p>
+                <ul class="tags">
+                    <li>Javascript</li>
+                    <li>GSAP</li>
+                    <li>Video.js</li>
+                </ul>
+            </div>
+        </li>
+        <li class="projets-item">
+           <div class="flex">
+               <p><a href="" id="distant">Distant Love</a></p>
+               <ul class="tags">
+                   <li>WooCommerce</li>
+                   <li>Wordpress</li>
+               </ul>
+           </div>
+        </li>
+        <li class="projets-item">
+            <div class="flex">
+                <p><a href="" id="graine">Association GRAINE</a></p>
+                <ul class="tags">
+                    <li>Wordpress</li>
+                </ul>
+            </div>
+        </li>
+    </ol>
+</section>
+
+<section id="envt" class="container">
+    <h2>Mon environnement</h2>
+    <div class="row">
+
+    </div>
 </section>
 
 
