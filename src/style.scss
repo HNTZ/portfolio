@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:800,900);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,800,900);
 @import url(https://fonts.googleapis.com/css?family=Work+Sans);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-grid.css);
@@ -35,15 +35,16 @@ $desktop-width: 1024px;
 // Général
 
 body {
-  background: linear-gradient(135deg, $bgLeft, $bgRight);
+  background-image: linear-gradient(135deg, $bgLeft, $bgRight);
   color: $dark;
+  background-attachment: fixed;
 }
 
 section {
   padding-bottom: 3em;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: $mainFont;
   font-weight: 900;
 }
@@ -288,12 +289,11 @@ main {
           color: $dark;
           text-decoration: none;
           font-size: 2.4em;
-          background: linear-gradient(to right, rgba(0,0,0,0) 50%, $dark 50%, $dark);
-          background-size: 200%;
+          background: linear-gradient(to right, rgba(0,0,0,0) 51%, $dark 51%, $dark);
+          background-size: 204%;
           transition: background-position 0.2s, color 0.5s;
           &#meteo {
-            background-image: linear-gradient(to right, rgba(0,0,0,0) 50%, #1DFAD3 50%, #54957B);
-            background-size: 200%;
+            background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #1DFAD3 51%, #54957B);
           }
           &:hover {
             background-position: 100%;
@@ -341,10 +341,157 @@ main {
   }
 
   #envt {
-    .row:first-of-type{
+    .container-fluid{
+      padding-top: 3em;
       clear:both;
+    }
+    // Lignes
+    .row-tech {
+      border-bottom: 1px solid rgba(0,0,0,0.03);
+      padding: 2em 1em;
+      overflow: hidden;
+      @include desktop {
+        margin: 0 5%;
+        padding: 4em 0;
+      }
+    }
+    .row:last-child {
+      border: none;
+    }
+    #Outils img {
+      &[alt="git"]{
+        height: 20px;
+      }
+      max-width: 80px;
+      @include tablet {
+        max-width: 130px;
+        &[alt="git"]{
+          height: 40px;
+        }
+      }
+      @include desktop {
+        max-width: initial;
+        &[alt="git"]{
+          height: 60px;
+        }
+      }
+    }
+    #Logiciels {
+      .tech {
+        height: 100px;
+        @include tablet {
+          height: 150px;
+        }
+        @include desktop {
+          height: auto;
+          min-height: 150px;
+        }
+      }
+      img {
+        max-width: initial;
+        max-height: 50px;
+        @include tablet {
+          max-height: 80px;
+        }
+        @include desktop {
+          max-height: 110px;
+        }
+      }
+    }
+
+
+
+    #Langages .tech:first-of-type {
+      padding: 20px 0;
+    }
+
+    //titres
+
+    .tech-nom {
+      overflow: hidden;
+      color: rgba(0,0,0,0.04);
+      font-family: Montserrat;
+      font-weight: 900;
+      font-style: italic;
+      height: 0.8em;
+      margin-top: -0.8em;
+      font-size: 2.5em;
+      transition: all 0.2s;
+      @include tablet {
+        font-size: 3em;
+      }
+      @include desktop {
+        font-size: 4em;
+      }
+      p {
+        padding-left: 5%;
+      }
+    }
+
+    .group-tech.hover {
+      .tech-nom {
+        height: 1.1em;
+        margin-top: -1.1em;
+        color: rgba(0,0,0,0.3)
+      }
+    }
+
+
+    // Colonnes
+    .tech {
+      display: flex;
+      perspective: 100px;
+      justify-content: center;
+      &.hover {
+        img {
+          filter: grayscale(0%) drop-shadow(0px 0px 9px rgba(0,0,0,0.2));
+          transform: rotate3d(0.5, 1, 0, 3deg) translateZ(2px);
+        }
+      }
+    }
+
+    h3 {
+      font-weight: 200;
+      text-align: center;
+      font-size: 1.3em;
+      padding-top: 3em;
+      padding-bottom: 0;
+      text-shadow: 0 0 10px rgba(0,0,0,0.1);
+      @include tablet {
+        font-size: 2em;
+      }
+      @include desktop {
+        font-size: 3em;
+      }
     }
   }
 
+  img {
+    margin: auto;
+    filter: grayscale(100%);
+    transition: all 0.5s;
+    max-height: 100px;
+    max-width: 60px;
+    @include tablet {
+      max-width: 100px;
+    }
+    @include desktop {
+      max-width: initial;
+    }
+  }
+
+  .container img {
+    width: 50%;
+    max-height: 180px;
+    max-width: initial;
+  }
+  
+  #exp {
+    >.row:first-child:after {
+      content: " ";
+      display: block;
+      clear: both;
+    }
+  }
 
 }

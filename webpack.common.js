@@ -2,7 +2,8 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HandlebarsPlugin = require("handlebars-webpack-plugin");
+const HandlebarsPlugin = require("handlebars-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -10,6 +11,9 @@ module.exports = {
         page: './src/page.js'
     },
     plugins: [
+        new CopyWebpackPlugin([
+            {from:'src/assets/img',to:'assets/img'}
+        ]),
         new CleanWebpackPlugin(['dist']),
         new HandlebarsPlugin({
             // path to hbs entry file(s)
@@ -17,6 +21,8 @@ module.exports = {
             // output path and filename(s). This should lie within the webpacks output-folder
             // if ommited, the input filepath stripped of its extension will be used
             output: path.join(process.cwd(), "dist", "[name].html"),
+            // data passed to main hbs template: `main-template(data)`
+            data: require("./src/data/projets.json"),
 
             // globbed path to partials, where folder/filename is unique
             partials: [

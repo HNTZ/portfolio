@@ -1,0 +1,59 @@
+{
+  "projets": [
+    {
+      "nom" : "Ce site",
+      "tags" : ["Webpack", "ES6", "Handlebars"],
+      "slug" : "portfolio"
+    },
+    {
+      "nom" : "Appli météo",
+      "tags" : ["JavaScript", "GSAP", "Weather API"],
+      "slug" : "meteo"
+    },
+    {
+      "nom" : "Playlist vidéo",
+      "tags" : ["jQuery", "GSAP"],
+      "slug" : "video"
+    },
+    {
+      "nom" : "eCommerce",
+      "tags" : ["WooCommerce", "Wordpress"],
+      "slug" : "distant"
+    },
+    {
+      "nom" : "Association GRAINE",
+      "tags" : ["Wordpress"],
+      "slug" : "graine"
+    }
+  ],
+  "tech": [
+    {
+      "nom": "Outils",
+      "items": ["webpack", "git", "phpstorm"],
+      "col" : 4
+    },
+    {
+      "nom": "Langages",
+      "items": ["handlebars", "sass", "javascript", "php", "mysql", "wordpress"],
+      "col" : 4
+    },
+    {
+      "nom": "Logiciels",
+      "items": ["photoshop", "adobexd", "illustrator", "3dsmax"],
+      "col" : 6
+    }
+  ],
+  "experiences" : [
+    {
+      "entreprise": "SEW Usocome",
+      "src" : "sew.png",
+      "titre" : "Stage de 12 semaines en cours",
+      "missions" : [
+        {
+          "titre" : "Maintenance et création d'applications web",
+          "compétences" : ["Propositions d'UX/UI", "Développement en PHP / JavaScript", "Création / gestion de bases de données"]
+        }
+      ]
+    }
+  ]
+}

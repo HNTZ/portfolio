@@ -9,53 +9,76 @@
 <section id="projets" class="container">
     <h2>Réalisations</h2>
     <ol class="projets-list">
-        <li class="projets-item">
-            <div class="flex">
-                <p><a href="" id="meteo">Appli météo</a></p>
-                <ul class="tags"><li>JavaScript</li><li>GSAP</li><li>Weather API</li></ul>
-            </div>
-        </li>
-        <li class="projets-item">
-            <div class="flex">
-                <p><a href="" id="video">Playlist vidéo</a></p>
-                <ul class="tags">
-                    <li>Javascript</li>
-                    <li>GSAP</li>
-                    <li>Video.js</li>
-                </ul>
-            </div>
-        </li>
-        <li class="projets-item">
-           <div class="flex">
-               <p><a href="" id="distant">Distant Love</a></p>
-               <ul class="tags">
-                   <li>WooCommerce</li>
-                   <li>Wordpress</li>
-               </ul>
-           </div>
-        </li>
-        <li class="projets-item">
-            <div class="flex">
-                <p><a href="" id="graine">Association GRAINE</a></p>
-                <ul class="tags">
-                    <li>Wordpress</li>
-                </ul>
-            </div>
-        </li>
+        {{#each projets}}
+            <li class="projets-item">
+                <div class="flex">
+                    <p><a href="" id="{{slug}}">{{nom}}</a></p>
+                    <ul class="tags">
+                        {{#each tags}}
+                            <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+        {{/each}}
     </ol>
 </section>
 
-<section id="envt" class="container">
-    <h2>Mon environnement</h2>
-    <div class="row">
-
+<section id="envt">
+    <div class="container">
+        <h2>Technologies</h2>
     </div>
-    <div class="row">
-
+    <div class="container-fluid">
+    {{#each tech}}
+        <div class="group-tech">
+            <div class="row row-tech" id="{{nom}}">
+                {{#each items}}
+                    <div class="col-{{../col}} col-xl tech">
+                        <img src="assets/img/{{this}}.png" alt="{{this}}">
+                    </div>
+                {{/each}}
+            </div>
+            <div class="row tech-nom"><p>{{nom}}</p></div>
+        </div>
+    {{/each}}
     </div>
-    <div class="row">
-
+    <h3>En cours / Prochainement</h3>
+    
+    <div class="container">
+        <div class="row row-tech next">
+            <div class="col-12 col-sm tech"><img src="assets/img/react.png" alt="react"></div>
+            <div class="col-12 col-sm tech"><img src="assets/img/nodejs.png" alt="nodejs"></div>
+        </div>
     </div>
+</section>
+
+<section id="exp" class="container">
+    <div class="row">
+        <h2>Expérience</h2>
+    </div>
+
+    {{#each experiences}}
+
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <img src="assets/img/{{src}}" alt="{{entreprise}}">
+        </div>
+        <div class="col-12 col-sm-6">
+            <h3>{{titre}}</h3>
+            {{#each missions}}
+
+                <h4>{{titre}}</h4>
+                <ul class="competences">
+                    {{#each compétences}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+
+            {{/each}}
+        </div>
+    </div>
+
+    {{/each}}
 </section>
 
 
