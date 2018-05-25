@@ -13,12 +13,14 @@ $dark: #393a2e;
 
 $light: #D4D4D4;
 
-$mainFont: 'Montserrat';
+$mainFont: 'Montserrat', sans-serif;
+
+$secondFont: "Work Sans", sans-serif;
 
 // Media queries
 
-$tablet-width: 768px;
-$desktop-width: 1024px;
+$tablet-width: 720px;
+$desktop-width: 1200px;
 
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
@@ -328,7 +330,7 @@ main {
     display: inline;
     li {
       display: inline;
-      font-family: "Work Sans", sans-serif;
+      font-family: $secondFont;
       font-weight: 300;
       &:after {
         content: ', ';
@@ -461,7 +463,7 @@ main {
         font-size: 2em;
       }
       @include desktop {
-        font-size: 3em;
+        font-size: 2.5em;
       }
     }
   }
@@ -486,12 +488,63 @@ main {
     max-width: initial;
   }
   
-  #exp {
-    >.row:first-child:after {
+  #experiences {
+    >.container:after {
       content: " ";
       display: block;
       clear: both;
     }
+
+    .entreprise:hover img {
+      filter: grayscale(0) drop-shadow(0 0 5px rgba(0,0,0,0.3));
+      transition: all 0.2s;
+    }
+
+    h3 {
+      font-size: 2em;
+      font-weight: 800;
+    }
+
+    h4 {
+      font-family: $secondFont;
+      font-size: 1.5em;
+      font-weight: 600;
+      padding: 0.5em 0;
+    }
+
+    .competences {
+      padding-left: 10px;
+      border-left: 4px solid #888884;
+      margin-left: 10px;
+      li {
+        color: #888884;
+        font-family: $secondFont;
+        font-weight: 500;
+        padding: 0.2em 0;
+        font-size: 1.2em;
+      }
+    }
+
+    .experience {
+      padding: 5em 0;
+      > div{
+        font-size: 0.7em;
+        padding: 4em 10%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        @include tablet {
+          font-size: 0.9em;
+        }
+        @include desktop {
+          font-size: 1em;
+          padding: 8em 0;
+        }
+      }
+    }
+
+
   }
 
 }
+

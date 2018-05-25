@@ -52,18 +52,18 @@
     </div>
 </section>
 
-<section id="exp" class="container">
-    <div class="row">
+<section id="experiences" class="container">
+    <div class="container">
         <h2>Expérience</h2>
     </div>
 
     {{#each experiences}}
 
-    <div class="row">
-        <div class="col-12 col-sm-6">
+    <div class="row experience">
+        <div class="col-12 col-xl-6 order-2 order-xl-1 entreprise">
             <img src="assets/img/{{src}}" alt="{{entreprise}}">
         </div>
-        <div class="col-12 col-sm-6">
+        <div class="col-12 col-xl-6 order-1 order-xl-2">
             <h3>{{titre}}</h3>
             {{#each missions}}
 

@@ -10,6 +10,11 @@ module.exports = {
         app: './src/index.js',
         page: './src/page.js'
     },
+    resolve: {
+        alias: {
+            "barba": path.resolve('node_modules', 'barba.js/dist/barba.min'),
+        }
+    },
     plugins: [
         new CopyWebpackPlugin([
             {from:'src/assets/img',to:'assets/img'}
