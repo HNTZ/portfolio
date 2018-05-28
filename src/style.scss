@@ -37,9 +37,14 @@ $desktop-width: 1200px;
 // Général
 
 body {
+  overflow-x: hidden;
   background-image: linear-gradient(135deg, $bgLeft, $bgRight);
   color: $dark;
   background-attachment: fixed;
+}
+
+#contact {
+  min-height: 150vh;
 }
 
 section {
@@ -66,9 +71,11 @@ li {
 
 
 header {
+  background-blend-mode: difference;
   display: block;
+  height: 150px;
   width: 80%;
-  margin: 2rem auto;
+  margin: auto;
   &:after {
     content:' ';
     display: block;
@@ -77,6 +84,11 @@ header {
 
   .main-menu {
     ul {
+      z-index: 999999999;
+      mix-blend-mode: color-burn;
+      position: fixed;
+      right: 10%;
+      top: 20px;
       float: right;
       display: block;
       margin: 1em;
@@ -114,7 +126,6 @@ header {
         cursor: pointer;
         width: 60px;
         height: 50px;
-        position: relative;
         padding: 0.5rem;
         .burger-inner, .burger-inner:before, .burger-inner:after {
           height: 2px;

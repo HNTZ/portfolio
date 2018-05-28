@@ -31,67 +31,83 @@ hoverEffects(techs, "hover");
 
 hoverEffects(groupTechs, "hover");
 
-var FadeTransition = Barba.BaseTransition.extend({
+document.addEventListener("click", function(e){
+    if (e.target.tagName === 'a') {
+        var href = e.target.href;
+        console.log(e.target)
+    }
+})
+
+var MovePage = Barba.BaseTransition.extend({
     start: function() {
-        /**
-         * This function is automatically called as soon the Transition starts
-         * this.newContainerLoading is a Promise for the loading of the new container
-         * (Barba.js also comes with an handy Promise polyfill!)
-         */
 
-        // As soon the loading is finished and the old page is faded out, let's fade the new page
         Promise
-            .all([this.newContainerLoading, this.fadeOut()])
-            .then(this.fadeIn.bind(this));
+            .all([this.newContainerLoading, this.scrollTop()])
+            .then(this.movePages.bind(this));
     },
 
-    fadeOut: function() {
-        /**
-         * this.oldContainer is the HTMLElement of the old Container
-         */
+    scrollTop: function() {
+        var deferred = Barba.Utils.deferred();
+        var obj = { y: window.pageYOffset };
 
-        return $(this.oldContainer).animate({ opacity: 0 }).promise();
+        console.log(obj)
+
+        TweenLite.to(obj, 0.4, {
+            y: 0,
+            onUpdate: function() {
+                if (obj.y === 0) {
+                    deferred.resolve();
+                }
+
+                window.scroll(0, obj.y);
+            },
+            onComplete: function() {
+                deferred.resolve();
+            }
+        });
+
+        return deferred.promise;
     },
 
-    fadeIn: function() {
-        /**
-         * this.newContainer is the HTMLElement of the new Container
-         * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-         * Please note, newContainer is available just after newContainerLoading is resolved!
-         */
-
+    movePages: function() {
         var _this = this;
-        var $el = $(this.newContainer);
 
-        $(this.oldContainer).hide();
+        let versLaDroite = false
 
-        $el.css({
-            visibility : 'visible',
-            opacity : 0
+        if (this.getNewPageFile() == "home") {
+            versLaDroite = true;
+        }
+
+        TweenMax.set(this.newContainer, {
+            visibility: 'visible',
+            xPercent: versLaDroite ? -100 : 100,
+            position: "fixed",
+            top: "150px",
+            left: 0,
+            right: 0
         });
 
-        $el.animate({ opacity: 1 }, 400, function() {
-            /**
-             * Do not forget to call .done() as soon your transition is finished!
-             * .done() will automatically remove from the DOM the old Container
-             */
-
-            _this.done();
-        });
+        TweenMax.to(this.oldContainer, 0.6, { xPercent: versLaDroite ? 100 : -100});
+        TweenMax.to(this.newContainer, 0.6, { xPercent: 0, onComplete: function() {
+                TweenMax.set(_this.newContainer, { clearProps: 'all' });
+                document.getElementsByTagName("body")[0].id = _this.getNewPageFile();
+                _this.done();
+            }});
+    },
+    getNewPageFile: function() {
+        let pageFile = Barba.HistoryManager.currentStatus().url.split('/').pop().split('.')[0];
+        if (pageFile == "") {
+            return "home"
+        }
+        else {
+            return pageFile
+        }
+        ;
     }
 });
 
-/**
- * Next step, you have to tell Barba to use the new Transition
- */
-
 Barba.Pjax.getTransition = function() {
-    /**
-     * Here you can use your own logic!
-     * For example you can use different Transition based on the current page or link...
-     */
-
-    return FadeTransition;
+    return MovePage;
 };
 
 Barba.Pjax.start();
