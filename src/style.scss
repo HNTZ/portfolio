@@ -1,38 +1,17 @@
+
+
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,800,900);
 @import url(https://fonts.googleapis.com/css?family=Work+Sans);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-grid.css);
+@import 'mixins';
+@import 'projets';
 
 // Styles
 
-$bgLeft: #FFF;
 
-$bgRight: #F1F1F1;
 
-$dark: #393a2e;
 
-$light: #D4D4D4;
-
-$mainFont: 'Montserrat', sans-serif;
-
-$secondFont: "Work Sans", sans-serif;
-
-// Media queries
-
-$tablet-width: 720px;
-$desktop-width: 1200px;
-
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
 
 // Général
 
@@ -204,6 +183,8 @@ header {
 
 main {
 
+
+
   h2 {
     float: left;
     display: block;
@@ -260,6 +241,30 @@ main {
     }
   }
 
+  .page-preview {
+    display: none;
+    transition: transform 0.3s, opacity 0.1s;
+    opacity: 0;
+    @include desktop {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      top: 150px;
+      left: 100%;
+      background: rgba(0,0,0,0);
+      img {
+        max-height: 70vh;
+        max-width: available;
+        margin: 0 auto auto auto;
+      }
+      &.hover, &.clicked {
+        transform: translateX(-50%);
+        opacity: 1;
+      }
+    }
+  }
+
   //Réalisations
 
   #projets {
@@ -291,7 +296,7 @@ main {
         counter-increment: customlistcounter;
         height: 11em;
         transition: transform 0.2s, text-shadow 1s;
-        &.hover {
+        &:hover {
           transform: rotate3d(1,4,-1, 5deg);
         }
         .flex {
@@ -305,7 +310,7 @@ main {
           background: linear-gradient(to right, rgba(0,0,0,0) 51%, $dark 51%, $dark);
           background-size: 204%;
           transition: background-position 0.2s, color 0.5s;
-          &#meteo {
+          &.meteo {
             background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #1DFAD3 51%, #54957B);
           }
           &:hover {
@@ -441,7 +446,7 @@ main {
       }
     }
 
-    .group-tech.hover {
+    .group-tech:hover {
       .tech-nom {
         height: 1.1em;
         margin-top: -1.1em;
@@ -455,7 +460,7 @@ main {
       display: flex;
       perspective: 100px;
       justify-content: center;
-      &.hover {
+      &:hover {
         img {
           filter: grayscale(0%) drop-shadow(0px 0px 9px rgba(0,0,0,0.2));
           transform: rotate3d(0.5, 1, 0, 3deg) translateZ(2px);
@@ -498,7 +503,7 @@ main {
     max-height: 180px;
     max-width: initial;
   }
-  
+
   #experiences {
     >.container:after {
       content: " ";

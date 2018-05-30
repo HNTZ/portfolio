@@ -1,0 +1,80 @@
+@import 'mixins';
+
+.projet-img {
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  position: relative;
+  left: 0;
+  display: flex;
+  img {
+    height: 65%;
+    max-height: unset;
+    margin: 0 auto auto auto;
+  }
+}
+
+.projet-content.container {
+  max-width: 600px;
+  margin-top: -35vh;
+  h1 {
+    font-size: 2em;
+    @include tablet {
+      font-size: 3.5em;
+    }
+    @include  desktop {
+      font-size: 5em;
+      margin-left: -100px;
+    }
+  }
+
+  a {
+    padding: 0.8em 1em;
+    font-family: $secondFont;
+    color: $dark;
+    border: 1px solid $dark;
+    float: right;
+    margin-top: 20px;
+  }
+
+  p {
+    &:first-of-type {
+      padding-top: 50px;
+      clear: both;
+    }
+    font: 400 100% $secondFont;
+    padding-bottom: 20px;
+  }
+}
+
+.next-prev {
+  margin-top: 100px;
+  height: 200px;
+  background: linear-gradient(10deg, lighten(lightgrey, 4) 50%, darkgrey);
+  box-shadow: inset 0 40px 100px rgba(255,255,255,0.4);
+  .row {
+    height: 100%;
+    .col {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      &:last-child {
+        justify-content: flex-start;
+      }
+      a {
+        font-family: $secondFont;
+        font-weight: 900;
+        padding: 2em 2.5em;
+        border: 1px solid $light;
+        color: $dark;
+        font-size: 0.6em;
+        @include tablet {
+          font-size: 1em;
+        }
+        @include desktop {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+}

@@ -24,6 +24,11 @@
       "nom" : "Association GRAINE",
       "tags" : ["Wordpress"],
       "slug" : "graine"
+    },
+    {
+      "nom" : "Ancien Portfolio",
+      "tags" : ["GSAP", "ScrollMagic"],
+      "slug" : "oldcv"
     }
   ],
   "tech": [

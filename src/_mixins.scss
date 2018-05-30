@@ -1,0 +1,28 @@
+// Media queries
+
+$tablet-width: 720px;
+$desktop-width: 1200px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+$bgLeft: #FFF;
+
+$bgRight: #F1F1F1;
+
+$dark: #393a2e;
+
+$light: #D4D4D4;
+
+$mainFont: 'Montserrat', sans-serif;
+
+$secondFont: "Work Sans", sans-serif;
