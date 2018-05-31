@@ -50,7 +50,6 @@ li {
 
 
 header {
-  background-blend-mode: difference;
   display: block;
   height: 150px;
   width: 80%;
@@ -64,7 +63,7 @@ header {
   .main-menu {
     ul {
       z-index: 999999999;
-      mix-blend-mode: color-burn;
+      mix-blend-mode: multiply;
       position: fixed;
       right: 10%;
       top: 20px;
@@ -428,7 +427,7 @@ main {
     .tech-nom {
       overflow: hidden;
       color: rgba(0,0,0,0.04);
-      font-family: Montserrat;
+      font-family: $mainFont;
       font-weight: 900;
       font-style: italic;
       height: 0.8em;

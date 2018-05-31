@@ -81,11 +81,19 @@ var MovePage = Barba.BaseTransition.extend({
         let versLaDroite = false
         let depart = 100;
 
-        if (this.getNewPageFile() == "home") {
+        if (this.getNewPageFile() === "home") {
             versLaDroite = true
         }
-        else if(this.newContainer.dataset.namespace == "projet" && this.getOldPageFile() == "home") {
+        else if(this.newContainer.dataset.namespace === "projet" && this.getOldPageFile() === "home") {
             depart = 50;
+        }
+
+        let prev = this.oldContainer.querySelector("#prev")
+
+        if ( prev != null) {
+            if (prev.href.split('/').pop() == this.getNewPageFile() ) {
+                versLaDroite = true;
+            }
         }
 
         TweenMax.set(this.newContainer, {
@@ -106,7 +114,7 @@ var MovePage = Barba.BaseTransition.extend({
         }});
     },
     getNewPageFile: function() {
-        let pageFile = Barba.HistoryManager.currentStatus().url.split('/').pop().split('.')[0];
+        let pageFile = Barba.HistoryManager.currentStatus().url.split('/').pop();
         if (pageFile == "") {
             return "home"
         }
@@ -144,11 +152,7 @@ var Homepage = Barba.BaseView.extend({
 var Projet = Barba.BaseView.extend({
     namespace: 'projet',
     onEnterCompleted: function() {
-
-        let next = document.querySelector('a#next');
-        let prev = document.querySelector('a#prev');
-
-        hoverpage();
+        console.log(document.querySelector("#next"))
     }
 })
 
