@@ -1,0 +1,133 @@
+@import 'mixins';
+
+
+header {
+  display: flex;
+  height: 150px;
+  justify-content: right;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+
+  .main-menu {
+    width: 100%;
+    ul {
+      position: relative;
+      z-index: 999999999;
+      mix-blend-mode: multiply;
+      float: right;
+      display: block;
+      margin: 1em;
+      @include desktop {
+        border: 0;
+        border-left: 1px solid $dark;
+        border-bottom: 1px solid $dark;
+      }
+
+      // Menu Burger
+
+      .burger {
+        &.close {
+          text-align: center;
+          .burger-inner {
+            background: rgba(0,0,0,0);
+            &:before, &:after {
+              top: 0;
+              background: $dark;
+              width: 25px;
+              padding: 0 10px;
+              margin-left: 8px;
+            }
+            &:before {
+              transform: rotate(45deg) translateY(50%);
+            }
+            &:after {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+        @include desktop {
+          display: none;
+        }
+        cursor: pointer;
+        width: 60px;
+        height: 50px;
+        padding: 0.5rem;
+        .burger-inner, .burger-inner:before, .burger-inner:after {
+          height: 2px;
+          position: absolute;
+          background: $dark;
+          transition: all 0.5s;
+        }
+        .burger-inner {
+          top: 50%;
+          width: 40px;
+          &:before {
+            content: '';
+            display: block;
+            width: 25px;
+            padding-left: 15px;
+            top: -10px
+          }
+          &:after {
+            content: '';
+            display: block;
+            width: 30px;
+            padding-left: 10px;
+            top: 10px;
+          }
+        }
+      }
+      .menu-item.open {
+        z-index: 10000;
+        position: fixed;
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, calc(-50% - 3rem));
+        width: 200px;
+        text-align: center;
+        background: white;
+        &:nth-child(2) {
+          margin-top: 3rem;
+        }
+        &:last-of-type {
+          margin-top: 6rem;
+        }
+      }
+
+      li {
+        &.menu-item {
+          display: none;
+          @include desktop {
+            display: block;
+          }
+        }
+        list-style: none;
+        font-size: 1em;
+        display: block;
+        float: left;
+        border: 1px solid $dark;
+        @include desktop {
+          border: 0;
+          border-right: 1px solid $dark;
+          border-top: 1px solid $dark;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 1em 2em;
+          &:hover {
+            background: $dark;
+            color: $light;
+          }
+        }
+      }
+    }
+
+  }
+
+}

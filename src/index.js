@@ -103,7 +103,7 @@ var MovePage = Barba.BaseTransition.extend({
             top: "150px",
             left: 0,
             right: 0,
-            ease: Power2.easeIn,
+            ease: Power2.easeIn
         });
 
         TweenMax.to(this.oldContainer, 0.7, { xPercent: versLaDroite ? 100 : -100});
@@ -151,8 +151,14 @@ var Homepage = Barba.BaseView.extend({
 
 var Projet = Barba.BaseView.extend({
     namespace: 'projet',
+    onEnter : function () {
+        TweenMax.set("h1", {opacity: 0})
+        TweenMax.set("img", {'filter': 'grayscale(1)'})
+    },
     onEnterCompleted: function() {
-        console.log(document.querySelector("#next"))
+        TweenMax.to("h1", 1, {opacity: 1})
+        TweenMax.to("img", 0.3, {'filter': 'grayscale(0)',})
+        TweenMax.from("h1", 1, {x: "-150"})
     }
 })
 

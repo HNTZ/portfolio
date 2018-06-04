@@ -8,19 +8,21 @@
   left: 0;
   display: flex;
   img {
-    height: calc(100% - 300px);
+    height: calc(100% - 350px);
     max-height: unset;
     max-width: unset;
     margin: 0 auto auto auto;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    filter: grayscale(0);
   }
 }
 
 .projet-content.container {
   max-width: 600px;
-  margin-top: -300px;
+  margin-top: -350px;
   h1 {
     font-size: 2em;
-    margin-top: 0.5em;
+    margin-top: 1em;
     @include tablet {
       font-size: 2.75em;
     }
@@ -31,12 +33,21 @@
   }
 
   a {
-    padding: 0.8em 1em;
-    font-family: $secondFont;
+    padding: 1.2em 2em;
+    font-family: $mainFont;
     color: $dark;
-    border: 1px solid $dark;
+    background: #fff;
+    border-radius: 500px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     float: right;
     margin-top: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    &:hover {
+      color: $light;
+      background: $dark;
+    }
   }
 
   p {
@@ -46,14 +57,14 @@
     }
     font: 400 100% $secondFont;
     padding-bottom: 20px;
+    color: #999;
   }
 }
 
 .next-prev {
   margin-top: 100px;
   height: 200px;
-  background: linear-gradient(10deg, lighten(lightgrey, 4) 50%, darkgrey);
-  box-shadow: inset 0 40px 100px rgba(255,255,255,0.4);
+  background: $dark;
   .row {
     height: 100%;
     .col {
@@ -64,12 +75,16 @@
         justify-content: flex-start;
       }
       a {
-        font-family: $secondFont;
-        font-weight: 900;
-        padding: 2em 2.5em;
-        border: 1px solid $light;
+        font-family: $mainFont;
+        font-weight: 700;
+        padding: 1.5em 0;
         color: $dark;
+        text-shadow: 0 0 10px rgba(0,0,0,0.4);
         font-size: 0.6em;
+        text-decoration: none;
+        background: $bgLeft;
+        width: 300px;
+        text-align: center;
         @include tablet {
           font-size: 1em;
         }

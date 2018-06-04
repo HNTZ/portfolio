@@ -2,16 +2,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,800,900);
 @import url(https://fonts.googleapis.com/css?family=Work+Sans);
+@import url(https://cdn.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-grid.css);
 @import 'mixins';
 @import 'projets';
-
-// Styles
-
-
-
-
+@import 'menu';
 
 // Général
 
@@ -44,146 +40,8 @@ li {
   display: flex;
 }
 
-/**************************************************
-*                   HEADER                      *
-***************************************************/
-
-
-header {
-  display: block;
-  height: 150px;
-  width: 80%;
-  margin: auto;
-  &:after {
-    content:' ';
-    display: block;
-    clear: both;
-  }
-
-  .main-menu {
-    ul {
-      z-index: 999999999;
-      mix-blend-mode: multiply;
-      position: fixed;
-      right: 10%;
-      top: 20px;
-      float: right;
-      display: block;
-      margin: 1em;
-      @include desktop {
-        border: 0;
-        border-left: 1px solid $dark;
-        border-bottom: 1px solid $dark;
-      }
-
-      // Menu Burger
-
-      .burger {
-        &.close {
-          text-align: center;
-          .burger-inner {
-            background: rgba(0,0,0,0);
-            &:before, &:after {
-              top: 0;
-              background: $dark;
-              width: 25px;
-              padding: 0 10px;
-              margin-left: 8px;
-            }
-            &:before {
-              transform: rotate(45deg) translateY(50%);
-            }
-            &:after {
-              transform: rotate(-45deg);
-            }
-          }
-        }
-        @include desktop {
-          display: none;
-        }
-        cursor: pointer;
-        width: 60px;
-        height: 50px;
-        padding: 0.5rem;
-        .burger-inner, .burger-inner:before, .burger-inner:after {
-          height: 2px;
-          position: absolute;
-          background: $dark;
-          transition: all 0.5s;
-        }
-        .burger-inner {
-          top: 50%;
-          width: 40px;
-          &:before {
-            content: '';
-            display: block;
-            width: 25px;
-            padding-left: 15px;
-            top: -10px
-          }
-          &:after {
-            content: '';
-            display: block;
-            width: 30px;
-            padding-left: 10px;
-            top: 10px;
-          }
-        }
-      }
-      .menu-item.open {
-        z-index: 10000;
-        position: fixed;
-        display: block;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, calc(-50% - 3rem));
-        width: 200px;
-        text-align: center;
-        background: white;
-        &:nth-child(2) {
-          margin-top: 3rem;
-        }
-        &:last-of-type {
-          margin-top: 6rem;
-        }
-      }
-
-      li {
-        &.menu-item {
-          display: none;
-          @include desktop {
-            display: block;
-          }
-        }
-        list-style: none;
-        font-size: 1em;
-        display: block;
-        float: left;
-        border: 1px solid $dark;
-        @include desktop {
-          border: 0;
-          border-right: 1px solid $dark;
-          border-top: 1px solid $dark;
-        }
-        a {
-          color: inherit;
-          text-decoration: none;
-          display: block;
-          width: 100%;
-          height: 100%;
-          padding: 1em 2em;
-        }
-      }
-    }
-
-  }
-
-}
 
 main {
-
-
-
   h2 {
     float: left;
     display: block;
@@ -253,7 +111,7 @@ main {
       left: 100%;
       background: rgba(0,0,0,0);
       img {
-        max-height: 70vh;
+        max-height: calc(100% - 350px);
         max-width: available;
         margin: 0 auto auto auto;
       }
@@ -308,12 +166,26 @@ main {
           font-size: 2.4em;
           background: linear-gradient(to right, rgba(0,0,0,0) 51%, $dark 51%, $dark);
           background-size: 204%;
-          transition: background-position 0.2s, color 0.5s;
+          mix-blend-mode: difference;
+          transition: background-position 0.2s, color 0.3s;
           &.meteo {
             background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #1DFAD3 51%, #54957B);
           }
+          &.video {
+            background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #d83627 51%, darken(#d83627, 11));
+          }
+          &.distant {
+            background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #FF2945 51%, #FF2B65);
+          }
+          &.graine {
+            background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #489348 51%, #317A31);
+          }
+          &.oldcv {
+            background-image: linear-gradient(to right, rgba(0,0,0,0) 51%, #2645ff 51%);
+          }
           &:hover {
             background-position: 100%;
+            color: $light;
           }
         }
         p {
@@ -375,50 +247,22 @@ main {
     .row:last-child {
       border: none;
     }
-    #Outils img {
-      &[alt="git"]{
-        height: 20px;
-      }
-      max-width: 80px;
+    #Outils img, #Logiciels img, #Langages img {
+      max-width: 60px;
+      max-height: 35px;
       @include tablet {
-        max-width: 130px;
-        &[alt="git"]{
-          height: 40px;
-        }
+        max-width: 80px;
+        max-height: 50px;
       }
       @include desktop {
-        max-width: initial;
-        &[alt="git"]{
-          height: 60px;
-        }
-      }
-    }
-    #Logiciels {
-      .tech {
-        height: 100px;
-        @include tablet {
-          height: 150px;
-        }
-        @include desktop {
-          height: auto;
-          min-height: 150px;
-        }
-      }
-      img {
-        max-width: initial;
-        max-height: 50px;
-        @include tablet {
-          max-height: 80px;
-        }
-        @include desktop {
-          max-height: 110px;
-        }
+        max-width: 120px;
+        max-height: 70px;
       }
     }
 
 
 
-    #Langages .tech:first-of-type {
+    #Langages .tech, #Logiciels .tech{
       padding: 20px 0;
     }
 
