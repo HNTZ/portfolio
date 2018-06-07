@@ -1,6 +1,6 @@
 // Media queries
 
-$tablet-width: 720px;
+$tablet-width: 768px;
 $desktop-width: 1200px;
 
 @mixin tablet {
@@ -13,6 +13,21 @@ $desktop-width: 1200px;
   @media (min-width: #{$desktop-width}) {
     @content;
   }
+}
+
+
+@function setLongShadow($length) {
+  $value: 0 0 rgb(50, 20, 150);
+
+  @for $i from 1 through $length {
+    $value: #{$value}, #{$i}px #{$i}px rgb($i*4, 20, 150);
+  }
+
+  @return $value;
+}
+
+@mixin longShadow($length) {
+  text-shadow: setLongShadow($length);
 }
 
 $bgLeft: #FFF;

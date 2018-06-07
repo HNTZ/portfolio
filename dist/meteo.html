@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Appli météo - Portfolio lucas Heintz</title>
+</head>
+<body id="projet">
+
+<header>
+    <div class="logo">
+        <p>lucas heintz</p>
+    </div>
+    <nav class="main-menu">
+        <ul>
+            <li class="burger">
+                <div class="burger-inner"></div>
+            </li>
+            <li class="menu-item"><a href="./">Accueil</a></li>
+            <li class="menu-item"><a href="./a-propos.html">A propos</a></li>
+            <li class="menu-item"><a href="./contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div id="barba-wrapper">
+        <div class="barba-container" data-namespace="projet">
+
+
+    <div class="projet-img">
+        <img src="./assets/img/meteo.gif" alt="meteo app">
+    </div>
+    <div class="container projet-content">
+        <div class="row">
+            <div class="col">
+                <h1>Appli météo</h1>
+                <a href="meteo/" class="button">Accéder à l'appli</a>
+                <p>
+                    Cette Application a été réalisé à la fin de cours sur l'utilisation d'API, et à été construite avec l'API Yahoo Weather.
+                    Les données ont été récuppérées en JSON et traitées grâces à la fonction getJSON de jQuery.
+                </p>
+                <p>
+                    Les animations sont réalisés avec GSAP, notamment TimelineLite pour la petite boule sauteuse de chargement, TweenLite pour le reste.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+<div class="next-prev container-fluid">
+    <div class="row">
+        <div class="col order-2 order-sm-1">
+            <a id="prev" href="portfolio.html">Projet précédent</a>
+        </div>
+        <div class="col order-1 order-sm-2">
+            <a id="next" href="video.html">Projet suivant</a>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript" src="app.bundle.js"></script>
+
+</body>
+</html>

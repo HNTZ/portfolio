@@ -1,11 +1,17 @@
-import printMe from './print.js';
 import './style.scss';
-import { cube } from './math.js';
 import menu from './menu.js';
 import Barba from 'barba';
-import { TweenMax, TimelineLite, CSSPlugin } from "gsap/TweenMax";
+import { TweenMax, CSSPlugin } from "gsap/TweenMax";
+import intro from './intro.js'
+
+intro();
+
+
+
 
 menu();
+
+
 
 let timeToTop = "0.6";
 
@@ -15,9 +21,7 @@ function hoverpage() {
         elements.forEach( (element) => {
             element.addEventListener("mouseenter", (e) => {
                 let slug = '#'+e.target.classList[1];
-                console.log(slug)
                 document.querySelector(slug).classList.add(hoverClass);
-                console.log(element)
             })
             element.addEventListener("mouseleave", (e) => {
                 let slug = '#'+e.target.classList[1];
@@ -26,7 +30,7 @@ function hoverpage() {
             element.addEventListener("click", (e) => {
                 let slug = '#'+e.target.classList[1];
                 document.querySelector(slug).classList.add("clicked");
-                if (window.scrollY == 0) {
+                if (window.scrollY === 0) {
                     timeToTop = 0;
                 }
                 setTimeout( function(){
@@ -42,6 +46,7 @@ function hoverpage() {
 
 
 hoverpage();
+
 
 var MovePage = Barba.BaseTransition.extend({
     start: function() {
@@ -144,6 +149,13 @@ var Homepage = Barba.BaseView.extend({
     namespace: 'homepage',
     onEnterCompleted: function() {
 
+        let open = document.querySelectorAll(".open")
+        if (open.length > 0) {
+            open.forEach((item) => {
+                item.classList.remove("open");
+            })
+            document.querySelector('.close').classList.remove("close");
+        }
 
         hoverpage();
     }
@@ -162,8 +174,36 @@ var Projet = Barba.BaseView.extend({
     }
 })
 
+var Contact = Barba.BaseView.extend({
+    namespace: 'contact',
+    onEnterCompleted: function() {
+        let open = document.querySelectorAll(".open")
+        if (open.length > 0) {
+            open.forEach((item) => {
+                item.classList.remove("open");
+            })
+            document.querySelector('.close').classList.remove("close");
+        }
+    }
+});
+
+var aPropos = Barba.BaseView.extend({
+    namespace: 'a-propos',
+    onEnterCompleted: function() {
+        let open = document.querySelectorAll(".open")
+        if (open.length > 0) {
+            open.forEach((item) => {
+              item.classList.remove("open");
+            })
+            document.querySelector('.close').classList.remove("close");
+        }
+    }
+});
+
 Homepage.init();
 
 Projet.init();
 
+Contact.init();
 
+aPropos.init();

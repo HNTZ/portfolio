@@ -8,7 +8,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         app: './src/index.js',
-        page: './src/page.js'
     },
     resolve: {
         alias: {

@@ -1,0 +1,133 @@
+@import 'mixins';
+
+
+main {
+  .side {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 0;
+    @include tablet {
+      position: fixed;
+      height: calc(100vh - 150px);
+    }
+    @include desktop {
+      position: fixed;
+      height: calc(100vh - 150px);
+    }
+    ul {
+      li {
+        padding: 0.5em 0;
+        color: $dark;
+        font-weight: 500;
+        font-size: 1.3em;
+        text-align: center;
+        font-family: $secondFont;
+        @include tablet {
+          font-size: 1.5em;
+        }
+        @include desktop {
+          font-size: 2.2em;
+        }
+        a {
+          color: inherit;
+          text-decoration: underline;
+          &:hover {
+            color: darkgrey;
+            filter: none;
+          }
+        }
+      }
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      margin-top: 20%;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      img {
+        max-width: unset;
+        max-height: unset;
+        width: 100px;
+
+        position: absolute;
+        border-radius: 50px;
+        filter: grayscale(0);
+        &:nth-child(1) {
+          filter: grayscale(1);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          &:hover {
+            opacity: 1;
+            animation: shake 0.5s infinite;
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      @include tablet {
+        font-size: 2em;
+      }
+      @include desktop {
+        font-size: 2.5em;
+      }
+    }
+    .contenu {
+      max-width: 600px;
+      padding-bottom: 100px;
+      h3 {
+        padding: 1em 0;
+        font-size: 1em;
+        font-weight: 900;
+        font-family: $secondFont;
+        &:after {
+          content: '';
+          display: block;
+          width: 70px;
+          height: 20px;
+          border-bottom: 2.5px solid rgba(0,0,0,0.1);
+        }
+        @include tablet {
+          font-size: 1.2em;
+        }
+        @include  desktop {
+          font-size: 1.5em;
+        }
+      }
+      p {
+        font-family: $secondFont;
+        padding: 0.7em 0;
+        span {
+          font-weight: 900;
+        }
+      }
+    }
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(1px, 0, -  1px);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(1px, 1px, 0);
+  }
+}

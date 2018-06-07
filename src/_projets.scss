@@ -1,25 +1,24 @@
 @import 'mixins';
 
 .projet-img {
-  height: 100vh;
+  height: calc(100vh - 350px);
   width: 100%;
   top: 0;
   position: relative;
   left: 0;
   display: flex;
   img {
-    height: calc(100% - 350px);
-    max-height: unset;
-    max-width: unset;
-    margin: 0 auto auto auto;
+    max-height: 100%;
+    max-width: 70%;
+    margin: auto;
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
     filter: grayscale(0);
+    transition: none;
   }
 }
 
 .projet-content.container {
   max-width: 600px;
-  margin-top: -350px;
   h1 {
     font-size: 2em;
     margin-top: 1em;
@@ -29,24 +28,6 @@
     @include  desktop {
       font-size: 3.5em;
       margin-left: -100px;
-    }
-  }
-
-  a {
-    padding: 1.2em 2em;
-    font-family: $mainFont;
-    color: $dark;
-    background: #fff;
-    border-radius: 500px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    float: right;
-    margin-top: 20px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 12px;
-    &:hover {
-      color: $light;
-      background: $dark;
     }
   }
 
@@ -69,24 +50,32 @@
     height: 100%;
     .col {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
-      &:last-child {
-        justify-content: flex-start;
+      @include tablet {
+        justify-content: flex-end;
+        &:last-child {
+          justify-content: flex-start;
+        }
+      }
+      @include desktop {
+        justify-content: flex-end;
+        &:last-child {
+          justify-content: flex-start;
+        }
       }
       a {
         font-family: $mainFont;
         font-weight: 700;
         padding: 1.5em 0;
         color: $dark;
-        text-shadow: 0 0 10px rgba(0,0,0,0.4);
-        font-size: 0.6em;
+        font-size: 1em;
         text-decoration: none;
         background: $bgLeft;
         width: 300px;
         text-align: center;
         @include tablet {
-          font-size: 1em;
+          font-size: 1.2em;
         }
         @include desktop {
           font-size: 1.5em;
