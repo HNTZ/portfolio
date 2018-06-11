@@ -8,6 +8,7 @@
 @import 'menu';
 @import 'a-propos';
 @import 'contact';
+@import "intro";
 
 // Général
 
@@ -33,6 +34,7 @@ body {
   color: $dark;
   font-family: $mainFont;
   font-style: italic;
+
   @include desktop {
     position: fixed;
   }
@@ -57,61 +59,6 @@ a.button {
   }
 }
 
-#loader {
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  background: linear-gradient(135deg, $bgLeft, $bgRight);
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999999999999;
-  a {
-    position: absolute;
-    bottom: 5%;
-    font-family: $mainFont;
-    color: $dark;
-    font-weight: 700;
-    font-size: 15px;
-    @include desktop {
-      font-size: 20px;
-    }
-  }
-  h1 {
-    opacity: 0;
-    position: absolute;
-    font-weight: 900;
-    font-size: 20px;
-    text-transform: uppercase;
-    @include longShadow(2);
-    color: #e1ff02;
-    @include tablet {
-      font-size: 35px;
-      @include longShadow(10);
-    }
-    @include desktop {
-      font-size: 70px;
-      @include longShadow(30);
-    }
-  }
-}
-
-.loader-img {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  svg {
-    height: 80vh;
-    width: 90vw;
-    g {
-      height: 100%;
-    }
-  }
-}
 
 section {
   padding-bottom: 3em;

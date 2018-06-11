@@ -1,12 +1,10 @@
 import './style.scss';
 import menu from './menu.js';
 import Barba from 'barba';
-import { TweenMax, CSSPlugin } from "gsap/TweenMax";
+import { TweenMax, Power2, CSSPlugin } from "gsap/TweenMax";
 import intro from './intro.js'
 
 intro();
-
-
 
 
 menu();

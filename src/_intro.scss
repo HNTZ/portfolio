@@ -1,0 +1,37 @@
+@import "mixins";
+
+
+#loader {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background: linear-gradient(135deg, $bgLeft, $bgRight);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999999999;
+  perspective: 100vw;
+}
+
+.loader-img {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .logo-img {
+    width: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80vh;
+    background-image: url(assets/img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 10vh;
+    margin-left: 5%;
+  }
+}

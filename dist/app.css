@@ -74,7 +74,6 @@
 header {
   display: flex;
   height: 150px;
-  justify-content: right;
   align-items: center;
   width: 80%;
   margin: auto; }
@@ -328,6 +327,39 @@ main .description .contenu {
       .contact a {
         font-size: 3em; } }
 
+#loader {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background: linear-gradient(135deg, #FFF, #F1F1F1);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999999999;
+  -webkit-perspective: 100vw;
+          perspective: 100vw; }
+
+.loader-img {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .loader-img .logo-img {
+    width: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80vh;
+    background-image: url(assets/img/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 10vh;
+    margin-left: 5%; }
+
 html {
   background-image: linear-gradient(135deg, #FFF, #F1F1F1);
   overflow-y: scroll; }
@@ -368,56 +400,6 @@ a.button {
   a.button:hover {
     color: #D4D4D4;
     background: #000; }
-
-#loader {
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  background: linear-gradient(135deg, #FFF, #F1F1F1);
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999999999999; }
-  #loader a {
-    position: absolute;
-    bottom: 5%;
-    font-family: "Montserrat", sans-serif;
-    color: #000;
-    font-weight: 700;
-    font-size: 15px; }
-    @media (min-width: 1200px) {
-      #loader a {
-        font-size: 20px; } }
-  #loader h1 {
-    opacity: 0;
-    position: absolute;
-    font-weight: 900;
-    font-size: 20px;
-    text-transform: uppercase;
-    text-shadow: 0 0 #321496, 1px 1px #041496, 2px 2px #081496;
-    color: #e1ff02; }
-    @media (min-width: 768px) and (max-width: 1199px) {
-      #loader h1 {
-        font-size: 35px;
-        text-shadow: 0 0 #321496, 1px 1px #041496, 2px 2px #081496, 3px 3px #0c1496, 4px 4px #101496, 5px 5px #141496, 6px 6px #181496, 7px 7px #1c1496, 8px 8px #201496, 9px 9px #241496, 10px 10px #281496; } }
-    @media (min-width: 1200px) {
-      #loader h1 {
-        font-size: 70px;
-        text-shadow: 0 0 #321496, 1px 1px #041496, 2px 2px #081496, 3px 3px #0c1496, 4px 4px #101496, 5px 5px #141496, 6px 6px #181496, 7px 7px #1c1496, 8px 8px #201496, 9px 9px #241496, 10px 10px #281496, 11px 11px #2c1496, 12px 12px #301496, 13px 13px #341496, 14px 14px #381496, 15px 15px #3c1496, 16px 16px #401496, 17px 17px #441496, 18px 18px #481496, 19px 19px #4c1496, 20px 20px #501496, 21px 21px #541496, 22px 22px #581496, 23px 23px #5c1496, 24px 24px #601496, 25px 25px #641496, 26px 26px #681496, 27px 27px #6c1496, 28px 28px #701496, 29px 29px #741496, 30px 30px #781496; } }
-
-.loader-img {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .loader-img svg {
-    height: 80vh;
-    width: 90vw; }
-    .loader-img svg g {
-      height: 100%; }
 
 section {
   padding-bottom: 3em; }

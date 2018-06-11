@@ -2,7 +2,6 @@ import {TweenMax, TimelineLite} from "gsap/TweenMax";
 
 let endLoading = (e) => {
     if (document.querySelector('#loader') === null) return;
-    if (e !== undefined) e.preventDefault();
 
     TweenMax.set('body', {clearProps: 'all'})
 
@@ -13,7 +12,7 @@ let endLoading = (e) => {
             let loader = document.querySelector('#loader');
 
             if (loader !== null) {
-                TweenMax.to(loader, 1.5, {opacity: 0, onComplete: function(){
+                TweenMax.to(loader, 1.5, {opacity: 0, ease: Power2.easeIn, onComplete: function(){
                         loader.remove();
                     }});
             }
@@ -26,20 +25,11 @@ let intro = function () {
 
     if ( document.querySelector('#homepage') === null ) return
 
-    let skip = document.querySelector(".loader-img a")
-    let tl = new TimelineLite()
-
-    skip.addEventListener('click', endLoading)
     TweenMax.set("body", {height: '100vh', overflow: 'hidden'})
+    TweenMax.set(".logo-img", {transformStyle:"preserve-3d"});
+    TweenMax.from('.logo-img', 3, {opacity: 0, rotationX: 40, rotationY: 65, ease: Power2.easeInOut, delay: 1})
 
-    tl.to('#intro-1', 0.3, {opacity: 1}, "+=0.5")
-    tl.to('#intro-1', 0.3, {opacity: 0}, "+=1.4")
-    tl.to('#intro-2', 0.3, {opacity: 1})
-    tl.to('#intro-2', 0.3, {opacity: 0}, "+=1.4")
-    tl.to('#intro-3', 0.3, {opacity: 1})
-    tl.to('#intro-3', 0.3, {opacity: 0}, "+=1.4")
-
-    setTimeout(endLoading, 6500);
+    setTimeout(endLoading, 4000)
 }
 
 export default intro;

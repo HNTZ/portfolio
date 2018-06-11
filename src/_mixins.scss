@@ -17,10 +17,14 @@ $desktop-width: 1200px;
 
 
 @function setLongShadow($length) {
-  $value: 0 0 rgb(50, 20, 150);
+  $value: 0 0 rgb(230, 250, 100);
 
   @for $i from 1 through $length {
-    $value: #{$value}, #{$i}px #{$i}px rgb($i*4, 20, 150);
+    $value: #{$value}, #{-$i}px #{$i/2}px rgb(200-$i*6, 250-$i*3, 250-$i*3);
+  }
+
+  @for $j from 1 through $length {
+    $value: #{$value}, #{-$length + $j}px  #{$length/2 + $j/2}px rgb(50, 70-$j*2, 10+$j*3);
   }
 
   @return $value;
